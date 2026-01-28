@@ -43,29 +43,25 @@ Installation step 1 |
 ------------ |
 <img src="https://github.com/aHaugl/BLE_course_remote_controller/blob/main/images/Step1.1.png" width="1000"> |
 
-<br>> |
-
-</br>
-
 When you get to step 4 and see the image below, select nRF Connect SDK version 3.2.1
-
-
-These are my settings, but the path may vary in your environment.
 </br>
 Next we need to add the hello_world sample as our application. The path to the sample is *NCS\zephyr\samples\hello_world*. Note that this sample is from the "zephyr" part of nRF Connect SDK (NCS), but there are plenty of samples found in *NCS\nrf\samples* as well. 
 </br>
 Start by selecting *Create a new application...* in the *nRF Connect* -> *Welcome* tab, and choose settings similar to this the screenshot below. I recommend that you create a folder outside the NCS root folder where you store your custom applications. In our case, we will call this folder *ble_course*, and the name of the application is *remote_controller*. The application that we copy to our custom folder with our custom name is the *hello_world* sample, but it will be renamed *remote_controller*.
 
-Setup Application from Sample |  
+Setup Application from Sample 1/3|  
 ------------ |
 <img src="https://github.com/aHaugl/BLE_course_remote_controller/blob/main/images/Step1.2.png" width="1000"> |
 
 <br>
-
-<img src="https://github.com/aHaugl/ble_course_remote_controller/tree/main/images/Step1.3.png"> |
+Setup Application from Sample 2/3|  
+------------ |
+<img src="https://github.com/aHaugl/BLE_course_remote_controller/blob/main/images/Step1.3.png" width="1000"> |
 
 </br>
-<img src="https://github.com/aHaugl/ble_course_remote_controller/tree/main/images/Step1.4.png"> |
+Setup Application from Sample 3/3|  
+------------ |
+<img src="https://github.com/aHaugl/BLE_course_remote_controller/blob/main/images/Step1.4.png" width="1000"> |
 
 </br>
 
