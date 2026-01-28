@@ -39,7 +39,7 @@ We will first start by doing a quick reading seshion and installing the required
 2. Installing VS Code, nRF Connect SDK and the required tools: Do the steps as described in [Lesson 1, exercise 1](https://academy.nordicsemi.com/courses/nrf-connect-sdk-fundamentals/lessons/lesson-1-nrf-connect-sdk-introduction/topic/exercise-1-1/). Make sure to use the latest tab:
 Installation step 1 | 
 ------------ |
-<img src="https://github.com/aHaugl/BLE_course_remote_controller/tree/main/images/Step1.1.png"> |
+<img src="https://github.com/aHaugl/BLE_course_remote_controller/blob/main/images/Step1.1.png"> |
 
 </br>
 
@@ -52,11 +52,11 @@ Next we need to add the hello_world sample as our application. The path to the s
 </br>
 Start by selecting *Create a new application...* in the *nRF Connect* -> *Welcome* tab, and choose settings similar to this the screenshot below. I recommend that you create a folder outside the NCS root folder where you store your custom applications. In our case, we will call this folder *ble_course*, and the name of the application is *remote_controller*. The application that we copy to our custom folder with our custom name is the *hello_world* sample, but it will be renamed *remote_controller*.
 
-Setup Application from Sample | 
+Setup Application from Sample |  
 ------------ |
-<img src="https://github.com/aHaugl/ble_course_remote_controller/tree/main/images/Step1.2.png"> |
+<img src="https://github.com/aHaugl/BLE_course_remote_controller/blob/main/images/Step1.2.png" width="1000"> |
 
-</br>
+<br>
 
 <img src="https://github.com/aHaugl/ble_course_remote_controller/tree/main/images/Step1.3.png"> |
 
