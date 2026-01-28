@@ -37,9 +37,13 @@ We will first start by doing a quick reading seshion and installing the required
 
 1. Read the introduction to nRF Connect SDK: https://academy.nordicsemi.com/courses/nrf-connect-sdk-fundamentals/lessons/lesson-1-nrf-connect-sdk-introduction/topic/nrf-connect-sdk-structure-and-content/?version=v3.2.0-v3.0.0 
 2. Installing VS Code, nRF Connect SDK and the required tools: Do the steps as described in [Lesson 1, exercise 1](https://academy.nordicsemi.com/courses/nrf-connect-sdk-fundamentals/lessons/lesson-1-nrf-connect-sdk-introduction/topic/exercise-1-1/). Make sure to use the latest tab:
+
+</br>
 Installation step 1 | 
 ------------ |
-<img src="https://github.com/aHaugl/BLE_course_remote_controller/blob/main/images/Step1.1.png"> |
+<img src="https://github.com/aHaugl/BLE_course_remote_controller/blob/main/images/Step1.1.png" width="1000"> |
+
+<br>> |
 
 </br>
 
