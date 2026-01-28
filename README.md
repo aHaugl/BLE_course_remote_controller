@@ -38,7 +38,6 @@ We will first start by doing a quick reading seshion and installing the required
 1. Read the introduction to nRF Connect SDK: https://academy.nordicsemi.com/courses/nrf-connect-sdk-fundamentals/lessons/lesson-1-nrf-connect-sdk-introduction/topic/nrf-connect-sdk-structure-and-content/?version=v3.2.0-v3.0.0 
 2. Installing VS Code, nRF Connect SDK and the required tools: Do the steps as described in [Lesson 1, exercise 1](https://academy.nordicsemi.com/courses/nrf-connect-sdk-fundamentals/lessons/lesson-1-nrf-connect-sdk-introduction/topic/exercise-1-1/). Make sure to use the latest tab:
 
-</br>
 Installation step 1 | 
 ------------ |
 <img src="https://github.com/aHaugl/BLE_course_remote_controller/blob/main/images/Step1.1.png" width="1000"> |
@@ -72,14 +71,10 @@ The only thing you need to do here is to set the board that you are using. Depen
 
 - nRF54L15 DK: nrf54l15dk/nrf54l15/cpuapp
 
-</br>
-
 Build Configuration - Settings | 
 ------------ |
+<img src="https://github.com/aHaugl/BLE_course_remote_controller/blob/main/images/Step1.5.png" width="1000"> |
 
-<img src="https://github.com/aHaugl/ble_course_remote_controller/tree/main/images/Step1.5.png"> |
-
-</br>
 This means that we're using NCS v3.2.1 and the toolchain corresponding to v3.2.1, building the sample for the target nRF54L15DK and the firmware we're building is in the folder "build".
 
 If you are using another board than the ones listed above, you can probably find the name of it in the folder: *NCS\zephyr\boards\arm*. When you have entered the name of your board, click Build Configuration.
@@ -107,9 +102,8 @@ Congratulations! You have built and flashed our first application. Let's move on
 
 The files that we will be using are the projects main.c and the prj.conf. From the VS Code Extension for NCS you can see those files (after building) under the application tab by selecting the build folder and expanding Source files and Config/Kconfig tabs:
 
-<img src="https://github.com/aHaugl/ble_course_remote_controller/tree/main/images/Step1.6.PNG"> |
+<img src="https://github.com/aHaugl/BLE_course_remote_controller/blob/main/images/Step1.6.png" width="1000"> |
 
-</br>
 
 Add the following to the projects prj.conf
 
