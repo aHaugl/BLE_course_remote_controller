@@ -53,12 +53,10 @@ Setup Application from Sample 1/3|
 ------------ |
 <img src="https://github.com/aHaugl/BLE_course_remote_controller/blob/main/images/Step1.2.png" width="1000"> |
 
-<br>
 Setup Application from Sample 2/3|  
 ------------ |
 <img src="https://github.com/aHaugl/BLE_course_remote_controller/blob/main/images/Step1.3.png" width="1000"> |
 
-</br>
 Setup Application from Sample 3/3|  
 ------------ |
 <img src="https://github.com/aHaugl/BLE_course_remote_controller/blob/main/images/Step1.4.png" width="1000"> |
