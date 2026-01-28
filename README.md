@@ -39,7 +39,7 @@ We will first start by doing a quick reading seshion and installing the required
 2. Installing VS Code, nRF Connect SDK and the required tools: Do the steps as described in [Lesson 1, exercise 1](https://academy.nordicsemi.com/courses/nrf-connect-sdk-fundamentals/lessons/lesson-1-nrf-connect-sdk-introduction/topic/exercise-1-1/). Make sure to use the latest tab:
 Installation step 1 | 
 ------------ |
-<img src="https://github.com/aHaugl/BLE_course_remote_controller/tree/main/images/Step1.1PNG"> |
+<img src="https://github.com/aHaugl/BLE_course_remote_controller/tree/main/images/Step1.1.png"> |
 
 </br>
 
@@ -54,14 +54,14 @@ Start by selecting *Create a new application...* in the *nRF Connect* -> *Welcom
 
 Setup Application from Sample | 
 ------------ |
-<img src="https://github.com/aHaugl/ble_course_remote_controller/tree/main/images/Step1.2.PNG"> |
+<img src="https://github.com/aHaugl/ble_course_remote_controller/tree/main/images/Step1.2.png"> |
 
 </br>
 
-<img src="https://github.com/aHaugl/ble_course_remote_controller/tree/main/images/Step1.3.PNG"> |
+<img src="https://github.com/aHaugl/ble_course_remote_controller/tree/main/images/Step1.3.png"> |
 
 </br>
-<img src="https://github.com/aHaugl/ble_course_remote_controller/tree/main/images/Step1.4.PNG"> |
+<img src="https://github.com/aHaugl/ble_course_remote_controller/tree/main/images/Step1.4.png"> |
 
 </br>
 
@@ -79,7 +79,7 @@ The only thing you need to do here is to set the board that you are using. Depen
 Build Configuration - Settings | 
 ------------ |
 
-<img src="https://github.com/aHaugl/ble_course_remote_controller/tree/main/images/Step1.5.PNG"> |
+<img src="https://github.com/aHaugl/ble_course_remote_controller/tree/main/images/Step1.5.png"> |
 
 </br>
 This means that we're using NCS v3.2.1 and the toolchain corresponding to v3.2.1, building the sample for the target nRF54L15DK and the firmware we're building is in the folder "build".
