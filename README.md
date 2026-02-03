@@ -97,7 +97,7 @@ Alternatively to the VS Code terminal, you can use any serial terminal app you w
 
 
 ### Step 2 - Enabling some basic application features
-Congratulations! You have built and flashed our first application. Let's move on by doing some minor modifications. If you explore some of the samples from the *nrf* folder in NCS, you'll see that most of them use our logging module, which is what we will use as well. In order to do so, replace the line `#include <sys/printk.h>` with `#include <zephyr/logging/log.h>`. In order to use the log module, we need to add a few things in the prj.conf file. You will find it from the application tab (called remote_controller if you didn't change it) -> Input files -> prj.conf. At this point, it should just say `#nothing here`.
+Congratulations! You have built and flashed our first application. Let's move on by doing some minor modifications. If you explore some of the samples from the *nrf* folder in NCS, you'll see that most of them use our logging module, which is what we will use as well. In order to do so, replace the line `#include <sys/printk.h>` with `#include <zephyr/logging/log.h>`. In order to use the log module, we need to add a few things in the prj.conf file. You will find it from the application tab (called remote_controller if you didn't change it) -> Config files -> prj.conf. At this point, it should just say `#nothing here`.
 </br>
 
 The files that we will be using are the projects main.c and the prj.conf. From the VS Code Extension for NCS you can see those files (after building) under the application tab by selecting the build folder and expanding Source files and Config/Kconfig tabs:
