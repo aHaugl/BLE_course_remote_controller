@@ -79,7 +79,7 @@ This means that we're using NCS v3.2.1 and the toolchain corresponding to v3.2.1
 
 If you are using another board than the ones listed above, you can probably find the name of it in the folder: *NCS\zephyr\boards\arm*. When you have entered the name of your board, click Build Configuration.
 
-When you built the configuration, it should compile/build the sample as well. If everything went well, you should be able to connect your DK using the micro USB port on the short end of the DK, and flash using the Flash button from the *ACTIONS* tab. </br>
+When you built the configuration, it should compile/build the sample as well. If everything went well, you should be able to connect your DK using the USB-C port on the short end of the DK, and flash using the Flash button from the *ACTIONS* tab. </br>
 
 If you've configured everything as above, it *should* flash successfully without any errors, and the *hello_world* sample is flashed to your board. We can see from the main.c file that it is printing some data using printk(), but unless we connect the nRF Terminal in VSC or another UART terminal, we will not see what it prints. Therefore, in the *CONNECTED DEVICES* tab, you should see your DK. Click the arrow on the left hand side to expand the board and click the left icon you see when you hover the mouse over the line saying VCOM0
 
@@ -719,7 +719,6 @@ We're almost done and ready to test our motor now. As mentioned, the default pwm
 You can also see which GPIOs that are already routed on the backside of the DK, but in the datasheet, you will find all the available ports and GPIO. Many of them are already connected to certain devices such as the LEDs and DK buttons. 
 
 Have a look at the pin map and see if you are able to find a Pin thats by default connected to P1 that does not have a predefined function? The solution is in the image below
-<br\>
 
 nRF54L15DK Connectors | 
 ------------ |
@@ -800,7 +799,7 @@ Does the motor move? **Warning: Do not attempt to move the rotor by force while 
 
 If it does, you can try to create a function inside motor_control.c that you can call from e.g. the button handler to set the pwm signal to different values between 1ms and 2ms (min and max duty cycle defined in our overlay earlier). Hint: One way to use the properties defined in our overlay file for minimum and maximum duty cycles is to use [DT_PROP(node_id, prop)](https://docs.zephyrproject.org/latest/build/dts/api/api.html#c.DT_PROP)
 
-These motors are cheap, so some motors goes 180 degrees between 1ms and 2ms, but yout milage may vary. Try out different values to see what the limits are for your motor. When I tested one of the motors, it turned out that the limits were 0.4ms and 2.4ms. 
+These motors are cheap, so some motors goes 180 degrees between 1ms and 2ms, but your milage may vary. Try out different values to see what the limits are for your motor. When I tested one of the motors, it turned out that the limits were 0.4ms and 2.4ms. 
 
 Call the function `set_motor_angle()` and make it return an int (0 on success, negative value on error). Declare it in motor_control.h, and implement it in motor_control.c. make it have an input parameter either as a PWM Pulse width cycle, or an input angle (degrees between 0 and 180).
 
@@ -809,7 +808,7 @@ Use this to set different angles, depending on what button you pressed.
 If you are having problems with controlling the motors, you can have a look at what my motor_control.h and motor_control.c looks like at this point in time in [partial solution Step_3.1_sol](https://github.com/aHaugl/OV_Orbit_BLE_Course/tree/main/temp_files/Step_3.1_sol).
 
 ## Step 4 - Adding Bluetooth
-It is finally time to add bluetooth to our project. A hint was given in the project name, but in case you missed it, we will write an application that mimics some sort of bluetooth remote, where we will be able to send button presses to a connected Bluetooth Low Energy Central. We will also add the oppurtunity to write back to the remote control. That may not be a typical feature for a remote control, but for the purpose of learning how to communicate in both directions we will add this. The connected central can either be your phone, a computer, or another nRF52. For this guide we will use the DK we've been working with so far and a smartphone with nRF Connect for iOS or Android.
+It is finally time to add bluetooth to our project. A hint was given in the project name, but in case you missed it, we will write an application that mimics some sort of bluetooth remote, where we will be able to send button presses to a connected Bluetooth Low Energy Central. We will also add the oppurtunity to write back to the remote control. That may not be a typical feature for a remote control, but for the purpose of learning how to communicate in both directions we will add this. The connected central can either be your phone, a computer, or another nRF52/nRF53 or nRF54L. For this guide we will use the DK we've been working with so far and a smartphone with nRF Connect for iOS or Android.
 
 This part will be similar to the [BLE fundamentals course](https://academy.nordicsemi.com/courses/bluetooth-low-energy-fundamentals/) on our academy pages, which we recommend that you go through in your own time to pick up some other details that won't be mentioned in this hands-on exercise. 
 In this first part we will go through a majority of the content covered in [Lesson 1 in the mentioned course](https://academy.nordicsemi.com/courses/bluetooth-low-energy-fundamentals/lessons/lesson-1-bluetooth-low-energy-introduction/).
@@ -977,7 +976,7 @@ These are just two ways to define the same UUID, which we will use later. Now, o
 
 If you inspect the GAP API you will find [bt_le_adv_start](https://docs.nordicsemi.com/bundle/zephyr-apis-3.2.1/page/group_bt_gap.html#gad2e3caef88d52d720e8e4d21df767b02), which is, as the function name states, the function we need to start advertising. It sets advertisement data, scan respons data, advertisement parameters and finally it starts advertising.
 
-The advertisement data and scan response data needs to be defined as a [bt_data struct](https://docs.nordicsemi.com/bundle/zephyr-apis-3.2.1/page/structbt_data.html) constructed in a certain way. In addition we will use `CONFIG_BT_DEVICE_NAME` which we've already defined to advertise our devices name.
+The advertisement data and scan response data needs to be defined as a [bt_data struct](https://docs.nordicsemi.com/bundle/zephyr-apis-3.2.1/page/structbt_data.html) constructed in a certain way. In addition we will use `CONFIG_BT_DEVICE_NAME` which we've already defined to advertise our device's name.
 
 Add this a suitable place, near the top, in remote.c:
 
@@ -987,7 +986,7 @@ Add this a suitable place, near the top, in remote.c:
 ```
 and open prj.conf and replace the name of 
 
-*[CONFIG_BT_DEVICE_NAME](https://docs.nordicsemi.com/bundle/ncs-3.2.1/page/kconfig/index.html#CONFIG_BT_DEVICE_NAME).="Remote_controller"*
+*[CONFIG_BT_DEVICE_NAME](https://docs.nordicsemi.com/bundle/ncs-3.2.1/page/kconfig/index.html#CONFIG_BT_DEVICE_NAME)="Remote_controller"*
 
 with something custom for your device.
 
@@ -1004,15 +1003,15 @@ static const struct bt_data sd[] = {
 
 };
 ```
-The next we want to do is to populate it using the helper macro [BT_DATA_BYTES()](https://developer.nordicsemi.com/nRF_Connect_SDK/doc/latest/zephyr/connectivity/bluetooth/api/gap.html#c.BT_DATA_BYTES). We also want to use the helper macro [BT_DATA()](https://developer.nordicsemi.com/nRF_Connect_SDK/doc/latest/zephyr/connectivity/bluetooth/api/gap.html#c.BT_DATA). Open the documentation for `BT_DATA_BYTES()` and `BT_DATA()` and have a look at how they are defined.
+The next we want to do is to populate it using the helper macro [BT_DATA_BYTES()](https://docs.nordicsemi.com/bundle/zephyr-apis-latest/page/group_bt_gap.html#ga4c51f9b7a3a4e84abb4df3f1f714c6e2). We also want to use the helper macro [BT_DATA()](https://docs.nordicsemi.com/bundle/zephyr-apis-latest/page/group_bt_gap.html#ga8481217e632522e1f322de87d745f8f0). Open the documentation for `BT_DATA_BYTES()` and `BT_DATA()` and have a look at how they are defined.
 
 In this exercise we want to advertise that we are
-* A [general discoverable](https://developer.nordicsemi.com/nRF_Connect_SDK/doc/latest/zephyr/connectivity/bluetooth/api/gap.html#c.BT_LE_AD_GENERAL) device  
-* We only supports Low Energy Bluetooth through [BT_LE_AD_NO_BREDR](https://developer.nordicsemi.com/nRF_Connect_SDK/doc/latest/zephyr/connectivity/bluetooth/api/gap.html#c.BT_LE_AD_NO_BREDR) (since Nordic’s products only support Bluetooth LE, this flag should always be set to this value)
-* We want to advertise the devices complete local name through [BT_DATA_NAME_COMPLETE](https://developer.nordicsemi.com/nRF_Connect_SDK/doc/latest/zephyr/connectivity/bluetooth/api/gap.html#c.BT_DATA_NAME_COMPLETE).
+* A [general discoverable](https://docs.nordicsemi.com/bundle/zephyr-apis-latest/page/group_bt_assigned_numbers_core.html#ga13d9b4a24e2a8b58402bfb21f8b782c8) device  
+* We only supports Low Energy Bluetooth through [BT_LE_AD_NO_BREDR](https://docs.nordicsemi.com/bundle/zephyr-apis-latest/page/group_bt_assigned_numbers_core.html#gabf5725f481cb73cbd974f3653c904bc9) (since Nordic’s products only support Bluetooth LE, this flag should always be set to this value)
+* We want to advertise the devices complete local name through [BT_DATA_NAME_COMPLETE](https://docs.nordicsemi.com/bundle/zephyr-apis-latest/page/group_bt_assigned_numbers_core.html#gab94a7c5689d296acf47f976538056ab5).
 
 In our scan response pack we want to have
-* our custom remote service which is a [BT_DATA_UUID128_ALL](https://developer.nordicsemi.com/nRF_Connect_SDK/doc/latest/zephyr/connectivity/bluetooth/api/gap.html#c.BT_DATA_UUID128_ALL).
+* our custom remote service which is a [BT_DATA_UUID128_ALL](https://docs.nordicsemi.com/bundle/zephyr-apis-latest/page/group_bt_assigned_numbers_core.html#gaafcade3dbbcb4005f4590e994f91884b).
 
 Now this might seem like a lot of magic and strange names and all such things, and it is if you're not familiar with the APIs, but all the parameters and types we've mentioned comes from the specification and are defined through the various APIs created for Bluetooth. 
 
@@ -1029,7 +1028,7 @@ static const struct bt_data sd[] = {
 };
 ```
 
-We've now set up everything we need for [bt_le_adv_start](https://developer.nordicsemi.com/nRF_Connect_SDK/doc/latest/zephyr/connectivity/bluetooth/api/gap.html#group__bt__gap_1gad2e3caef88d52d720e8e4d21df767b02).
+We've now set up everything we need for [bt_le_adv_start](https://docs.nordicsemi.com/bundle/zephyr-apis-latest/page/group_bt_gap.html#gad2e3caef88d52d720e8e4d21df767b02).
 
 To your bluetooth init, after you've taken the semaphore from bt_enable, add the following:
 
@@ -1062,7 +1061,7 @@ struct bt_conn_cb bluetooth_callbacks = {
 };
 ```
 
-Try "control clicking" bt_conn_cb, or go to [struct bt_conn_cb](https://developer.nordicsemi.com/nRF_Connect_SDK/doc/latest/zephyr/connectivity/bluetooth/api/connection_mgmt.html#c.bt_conn_cb) on the documentation pages, to see what callback types the .connected and .disconnected callback events are to understand why they have the function parameters that they have. The function parameters I'm referring to are
+Try "control clicking" bt_conn_cb, or go to [struct bt_conn_cb](https://docs.nordicsemi.com/bundle/zephyr-apis-latest/page/structbt_conn_cb.html) on the documentation pages, to see what callback types the .connected and .disconnected callback events are to understand why they have the function parameters that they have. The function parameters I'm referring to are
 
 ```C
 void (*connected)(struct bt_conn *conn, uint8_t err)
@@ -1132,7 +1131,7 @@ If you followed the guide this far, your files should look something like [this]
 </br>
 
 ## Step 5 - Adding our first Bluetooth Service
-Let us add the service that we claim that we have when we advertise. We will use the macro [BT_GATT_SERVICE_DEFINE](https://developer.nordicsemi.com/nRF_Connect_SDK/doc/latest/zephyr/connectivity/bluetooth/api/gatt.html#c.BT_GATT_SERVICE_DEFINE) to add our service. It is quite simple at the same time as it is quite complex. When we use this macro to create and add our service, the rest is done "under the hood" of NCS/Zephyr. By just adding this snippet to remote.c:
+Let us add the service that we claim that we have when we advertise. We will use the macro [BT_GATT_SERVICE_DEFINE](https://docs.nordicsemi.com/bundle/zephyr-apis-latest/page/group_bt_gatt_server.html#ga04c7887fb67107bd060dd023fd3186d5) to add our service. It is quite simple at the same time as it is quite complex. When we use this macro to create and add our service, the rest is done "under the hood" of NCS/Zephyr. By just adding this snippet to remote.c:
 
 
 ```C
