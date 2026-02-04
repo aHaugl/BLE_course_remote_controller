@@ -176,7 +176,7 @@ Open `dk_buttons_and_leds.h` or the DK buttons and LEDS [library API page](https
 Build and flash your firmware. If you've done everything "as intended" you should now see that LED1 toggles on and off with a 1 sec interval.
 
 </br>
-Now, let us look for a function that can enable the buttons in the `dk_buttons_and_leds.h` file or [library API page](https://docs.nordicsemi.com/bundle/ncs-2.6.2/page/nrf/libraries/others/dk_buttons_and_leds.html#api_documentation) Remember to check the return value of the button init function. When you have a button handler set up, try to use it to print something in the log, so that we can see that it triggers correctly. We can tweak the button handler later.
+Now, let us look for a function that can enable the buttons in the `dk_buttons_and_leds.h` file or [library API page](https://docs.nordicsemi.com/bundle/ncs-3.2.1/page/nrf/libraries/others/dk_buttons_and_leds.html) Remember to check the return value of the button init function. When you have a button handler set up, try to use it to print something in the log, so that we can see that it triggers correctly. We can tweak the button handler later.
 
 </br>
 
@@ -383,12 +383,13 @@ The beauty of Zephyr drivers is that once we have enabled them through configura
 
 Every nRF SoC has a set of peripherals available and every DK based on a nRF SoC has a set of predefined devices available. The nRF54L15DK has among them multiple predefined PWM modules and one of them is the pwm_led that we can use to verify that we've set up our PWM module correctly. 
 
-Under the devicetree tab in your applicaiton tree you can see the devicetree used for the current build. This board is selected from the list of boards found in [sdk_version/zephyr/boards/](https://github.com/nrfconnect/sdk-zephyr/tree/main/boards/nordic), and we want to have a look at the files in /nordicnrf54l15dk located in [the nrf54l15dk folder](https://github.com/nrfconnect/sdk-zephyr/tree/main/boards/nordic/nrf54l15dk).
+Under the devicetree tab in your applicaiton tree you can see the devicetree used for the current build. 
 
 Application Tree Devicetree | 
 ------------ |
 <img src="https://github.com/aHaugl/OV_Orbit_BLE_Course/blob/main/images/Step3.2.png" width="1000"> |
 
+This board is selected from the list of boards found in [sdk_version/zephyr/boards/](https://github.com/nrfconnect/sdk-zephyr/tree/main/boards/nordic), and we want to have a look at the files in /nordicnrf54l15dk located in [the nrf54l15dk folder](https://github.com/nrfconnect/sdk-zephyr/tree/main/boards/nordic/nrf54l15dk).
 <br>
 We now want to have a look at how we can access the various GPIOs and predefined peripherals on the DK. To do this we can investigate the board files of the device. For the nRF54L15 there's two ways to do this. Either locate the board file and nrf54l15dk/nrf54l15dk_common.dtsi in explorer or through git, or to find the file by
 
