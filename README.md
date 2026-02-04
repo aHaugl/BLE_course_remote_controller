@@ -383,7 +383,9 @@ The beauty of Zephyr drivers is that once we have enabled them through configura
 
 Every nRF SoC has a set of peripherals available and every DK based on a nRF SoC has a set of predefined devices available. The nRF54L15DK has among them multiple predefined PWM modules and one of them is the pwm_led that we can use to verify that we've set up our PWM module correctly. 
 
-Under the devicetree tab in your applicaiton tree you can see the devicetree used for the current build. 
+Under the devicetree tab in your applicaiton tree you can see the devicetree used for the current build.
+
+*PS! Remember where to find the "Create overlay file" because we will use it shortly*
 
 Application Tree Devicetree | 
 ------------ |
