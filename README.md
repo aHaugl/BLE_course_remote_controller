@@ -183,13 +183,13 @@ Now, let us look for a function that can enable the buttons in the `dk_buttons_a
 *Hint: As this function initializes our buttons, it has an input parameter which is a callback handler. Use the "Go to definition" on the button handler type to see what kind of callback function it expects. If the button handler type that is expected is defined like this:* 
 
 ```C
-typedef void (*callback_handler)(uint8_t first_parameter, uint16_t second_parameter);
+typedef void (*callback_handler)(uint32_t first_parameter, uint32_t second_parameter);
 ```
 
 *it means that you can define your callback e.g. like this:*
 
 ```C
-void my_callback_function(uint8_t my_8_bit_parameter, uint16_t my_16_bit_parameter)
+void my_callback_function(uint32_t my_32_bit_parameter, uint32_t my_32_bit_parameter)
 ```
 *You would probably choose some different names for the function and the parameters, but this is an example on how to interpret the callback typedefs.*
 
@@ -341,12 +341,11 @@ Open `motor_control.h` and add:
 ```
 
 **Challenge:** </br>
-Try to create a function called `motor_init()` inside your `motor_control.c` file, that you also need to declare in `motor_control.h` file. Make the function return 0 (int), and check the return value of this function after you call it from your `main()` function. 
+Try to create a function called `motor_init()` inside your `motor_control.c` file, that you also need to declare in `motor_control.h` file. Make the function return 0 (int), and check the return value of this function after you call it from your `main()` function. Remember to include `motor_control.h` from your `main.c` file.
 
-Add whatever that is needed in these two files so that you can use this function to log "*Initializing motor control.*" to our log. Remember to include `motor_control.h` from your `main.c` file.
-</br>
+Add whatever that is needed in these two files so that you can use this function to log "*Initializing motor control.*" to our log. 
 
-*Hint: Initialize the log module from `motor_control.c` pretty much the same way that you did in `main.c`. I.e add the two lines from main.c that we used to register the logging module. In main.c we gave the log module the name "app", but in `motor_control.c` give it another log module name, so that it is easy to see from what file the log messages are coming from. *
+*Hint: Initialize the log module from `motor_control.c` pretty much the same way that you did in `main.c`. I.e add the two lines from main.c that we used to register the logging module. In main.c we gave the log module the name "app", but in `motor_control.c` give it another log module name, so that it is easy to see from what file the log messages are coming from.*
 </br>
 
 Build and flash your new firmware. What you should see as output is the same as in step 1 with the addition of a Log message from `motor_init()` from `motor_control.c` stating that you've initialized motor control.
