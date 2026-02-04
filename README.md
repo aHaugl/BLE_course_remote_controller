@@ -343,11 +343,10 @@ Open `motor_control.h` and add:
 **Challenge:** </br>
 Try to create a function called `motor_init()` inside your `motor_control.c` file, that you also need to declare in `motor_control.h` file. Make the function return 0 (int), and check the return value of this function after you call it from your `main()` function. 
 
-Add whatever that is needed in these two files so that you can use this function to log "*Initializing motor control.*" to our log. **Hint: look at how we set up the log moduole in main.c and replace the name "app" with "motor_control"**
-
-. Remember to include `motor_control.h` from your `main.c` file.
+Add whatever that is needed in these two files so that you can use this function to log "*Initializing motor control.*" to our log. Remember to include `motor_control.h` from your `main.c` file.
 </br>
-*Hint: Give `motor_control.c` another log module name, so that it is easy to see from what file the log messages are coming from. Initialize the log module from `motor_control.c` pretty much the same way that you did in `main.c`.*
+
+*Hint: Initialize the log module from `motor_control.c` pretty much the same way that you did in `main.c`. I.e add the two lines from main.c that we used to register the logging module. In main.c we gave the log module the name "app", but in `motor_control.c` give it another log module name, so that it is easy to see from what file the log messages are coming from. *
 </br>
 
 Build and flash your new firmware. What you should see as output is the same as in step 1 with the addition of a Log message from `motor_init()` from `motor_control.c` stating that you've initialized motor control.
