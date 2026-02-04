@@ -73,8 +73,6 @@ static void configure_dk_buttons_and_leds(void){
 
 int main(void)
 {
-/* Step 2.10 - check if the LED blinks */
-	// int err = 0;
 	bool blink_status = false;
 
 	printf("Hello World! %s\n", CONFIG_BOARD);
@@ -83,7 +81,8 @@ int main(void)
 	
 	
 	for (;;){
-		dk_set_led(RUN_STATUS_LED,(blink_status++)%2);
+		dk_set_led(RUN_STATUS_LED, (blink_status));
+		blink_status = !blink_status;
 		k_sleep(K_MSEC(RUN_LED_BLINK_INTERVAL));
 
 	}
