@@ -452,7 +452,7 @@ The next we want to do is to initialize this device and populize the struct with
 Near the top, but after the PWM_LED0 definition in motor_control.c initialize and populate your device with the parameters from the .dts file:
 
 ```C
-static const struct pwm_dt_spec pwm_led1 = PWM_DT_SPEC_GET(PWM_LED1);
+static const struct pwm_dt_spec pwm_led1 = PWM_DT_SPEC_GET(PWM_LED0);
 ```
 
 or to [PWM_DT_SPEC_GET_BY_NAME(node_id, name)](https://docs.zephyrproject.org/latest/hardware/peripherals/pwm.html#c.PWM_DT_SPEC_GET_BY_NAME) given that your device has a name.
